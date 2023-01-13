@@ -1,0 +1,222 @@
+{
+	"folders": [
+		{
+			"name": "nginx",
+			//"path": ".."
+			"path": "../"
+		},
+	],
+	"settings": {
+		// 소스파일 길이가 너무 커지면 vscode가 버벅이는 것을 방지
+		"editor.maxTokenizationLineLength": 10000,
+		// terminal 저장될 스크롤
+		"terminal.integrated.scrollback": 10000,
+		// "terminal.integrated.defaultProfile.linux": "zsh",
+		"terminal.integrated.defaultProfile.linux":"zsh",
+		// 일반적인 쉘프로그램 (puTTY)처럼 터미널에서 선택하는것만으로도 복사
+		"terminal.integrated.copyOnSelection": true,
+
+		"terminal.explorerKind": "external",
+		"terminal.integrated.allowMnemonics": true,
+
+		// vscode 파일에서 아예 보여지지 않음.
+		"files.exclude": {
+			"api_server": true,
+			"**/*.o": true,
+			"**/*.a": true,
+			"**/*.so": true,
+		},
+		// vscode 파일 탐색기에서 보여지지 않음.
+		"files.watcherExclude": {
+			// "**/.git/*/**": true,
+			"**/*.o*": true,
+			"**/node_modules/*/**": true,
+		},
+		// C_pp 확장이 해당 디렉토리/파일은 무시함. (구문분석, intellisense 등)
+		"C_Cpp.files.exclude": {
+			"**/.vscode": true,
+			"**/downloads": true,
+			"**/backup": true,
+			"/usr/include/x86_64-linux-gnu/**": true,
+		},
+		// sidebar - 검색 창에서 해당 디렉토리/파일의 내용은 무시함
+		"search.exclude": {
+			// "**/.vscode/**/*[!{md,http}]": true,
+			"/.vscode/**/*.{json,sql,sh,env,natvis,txt,log}": true,
+			"**/*.code-search": true,
+
+			"**/*log*": true,
+			"**/.tags": true,
+
+			"**/build": true,
+			"**/node_modules": true,
+		},
+
+		// editor 세로줄 세팅
+		"editor.rulers": [
+			80,
+			{
+				"column": 100,
+				"color": "#693f07"
+			},
+			{
+				"column": 120,
+				"color": "#3a0707"
+			},
+		],
+
+		// vscode 정렬 포멧
+		"C_Cpp.formatting": "vcFormat",
+		"C_Cpp.errorSquiggles": "enabled",
+        "C_Cpp.intelliSenseEngineFallback": "enabled",
+		"C_Cpp.intelliSenseEngine": "default",
+        "C_Cpp.intelliSenseCachePath": "${workspaceFolder}/.vscode/cpptools",
+        "C_Cpp.vcFormat.space.pointerReferenceAlignment": "right",
+        "C_Cpp.loggingLevel": "Debug",
+        "C_Cpp.default.cppStandard": "c++11",
+        "C_Cpp.default.cStandard": "c11",
+		// "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+		// // "C_Cpp.codeAnalysis.clangTidy.args": ["-checks=-*,clang-analyzer-*"],
+		// "C_Cpp.codeAnalysis.clangTidy.args": ["-checks=-*,clang-analyzer-alpha*"],
+
+		// 파일 포맷
+		"files.associations": {
+			"*.h": "c",
+			"*.y": "c",
+			"*.py": "python",
+			"*.log": "log",
+			"passwd": "shellscript",
+			"*.c": "c",
+			"cstdio": "cpp",
+			"*.log.*": "log",
+			"cstddef": "c",
+			"string": "c",
+			"optional": "c",
+			"limits": "c",
+			"memory": "c",
+		},
+
+		// EXTENSION - Current File Path
+		// https://marketplace.visualstudio.com/items?itemName=YoshinoriN.current-file-path
+		"currentFilePath.defaultPathStyle": "unix",
+
+		// EXTENSION - log Viewer
+		// https://marketplace.visualstudio.com/items?itemName=berublan.vscode-log-viewer
+		"logViewer.chunkSizeKb": 1024,
+		"logViewer.options": {
+			"fileCheckInterval": 300,
+			"fileListInterval": 2000
+		},
+		// "manpages.apropos.args": [ "5" ],
+		// "manpages.binary.args": [ "--all" ],
+		"manpages.binary.path": "/usr/bin/man",
+
+		// EXTENSION - SQLTools
+		// https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+				"driver": "PostgreSQL",
+				"name": "PSQL_DB",
+				"database": "aiwaf_db",
+				"username": "postgres",
+				"password": "1234qwer!"
+			}
+		],
+		"sqltools.defaultOpenType": "prompt",
+		"sqltools.defaultExportType": "prompt",
+		"sqltools.showStatusbar": true,
+		"sqltools.flattenGroupsIfOne": false,
+
+        "remote.extensionKind": {
+			"humao.rest-client": [ "ui" ],
+            "danielroedl.meld-diff": [ "workspace" ],
+			// "shd101wyy.markdown-preview-enhanced": [ "ui" ],
+			"shd101wyy.markdown-preview-enhanced": [ "workspace" ],
+			"tgreen7.open-file-command": [ "ui" ],
+            // "mushan.vscode-paste-image": [ "ui" ],
+			// "shd101wyy.markdown-preview-enhanced": [ "ui" ]
+        },
+
+		// EXTENSION - Vim
+		// https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+		"vim.useSystemClipboard": true,
+
+
+		// EXTENSION - REST Client
+		// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+		"rest-client.timeoutinmilliseconds": 0,
+
+		// 시딩하지 않음
+		"editor.find.seedSearchStringFromSelection": "never",
+		"github.copilot.inlineSuggest.enable": true,
+
+		// you must need this extension ( https://pypi.org/project/autopep8/ )
+		// python3 -m pip install --upgrade autopep8
+		"python.formatting.provider": "autopep8",
+		"gitlens.advanced.externalDiffTool": "bcompare",
+
+		// "c-cpp-flylint.ignoreParseErrors": false,
+		"c-cpp-flylint.debug": true,
+
+		"c-cpp-flylint.cppcheck.configFile": ".clang_complete",
+		"c-cpp-flylint.cppcheck.enable": true,
+		"c-cpp-flylint.cppcheck.platform": "unix64",
+		"c-cpp-flylint.cppcheck.defines": null,
+		"c-cpp-flylint.cppcheck.language": "c",
+		"c-cpp-flylint.cppcheck.severityLevels": {
+			"error": "Error",
+			"warning": "Warning",
+			"style": "Information",
+			"performance": "Information",
+			"portability": "Information",
+			"information": "Information"
+		},
+		"c-cpp-flylint.cppcheck.undefines": null,
+		// 포함될 파일을 검색할 경로를 입력, 주어진 경로에서 포함된 헤더파일을 먼저 검색함
+		"c-cpp-flylint.cppcheck.includePaths": [
+			"/usr/include/",
+			"/home/src/AILIB402/v4.0.2/",
+		],
+		"c-cpp-flylint.excludeFromWorkspacePaths": [
+			"/home/src/AILIB402/v4.0.2/extern/",
+			"/home/src/aiwaf50/ailib/extern"
+		],
+		// --std 특정 std버전의 표준에 맞게 정적 검사를 시행한다.
+		"c-cpp-flylint.cppcheck.standard": [
+			"c11"
+		],
+		// 특정 경고를 무시함
+		"c-cpp-flylint.cppcheck.suppressions": [
+			"redundantAssignment",
+			"toomanyconfigs",
+			"variableScope"
+		],
+		"c-cpp-flylint.cppcheck.force": false,
+		"c-cpp-flylint.cppcheck.addons": [],
+		"c-cpp-flylint.cppcheck.executable": "cppcheck",
+		"c-cpp-flylint.cppcheck.extraArgs": [],
+		"c-cpp-flylint.cppcheck.inconclusive": false,
+		"c-cpp-flylint.cppcheck.verbose": false,
+
+		"c-cpp-flylint.queryUrlBase": "https://www.google.com/search?q=",
+		"c-cpp-flylint.webQueryMatchSet": [
+		],
+		// 나머지 정적분석 도구 off
+		"c-cpp-flylint.flawfinder.enable": false,
+		"c-cpp-flylint.flexelint.enable": false,
+		"c-cpp-flylint.lizard.enable": false,
+		"c-cpp-flylint.clang.enable": false,
+		"problems.showCurrentInStatus": false,
+		"problems.sortOrder": "severity",
+
+		"markdown-preview-enhanced.imageFolderPath": "../",
+		"markdown-preview-enhanced.liveUpdate": true,
+		"search.followSymlinks": true,
+
+		"editor.definitionLinkOpensInPeek": false,
+
+	},
+}

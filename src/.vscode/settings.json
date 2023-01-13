@@ -1,0 +1,36 @@
+{
+	"python.testing.unittestEnabled": false,
+	"python.testing.autoTestDiscoverOnSaveEnabled": false,
+	"testMate.cpp.log.logSentry": "disable_3",
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "googletest.failed",
+				"settings": {
+					"foreground": "#f00"
+				}
+			},
+			{
+				"scope": "googletest.passed",
+				"settings": {
+					"foreground": "#0f0"
+				}
+			},
+			{
+				"scope": "googletest.run",
+				"settings": {
+					"foreground": "#0f0"
+				}
+			}
+		]
+	},
+	"cmake.configureOnOpen": false,
+	"rest-client.showresponseindifferenttab": false, 
+	"rest-client.defaultheaders": {
+		"accept": "*/*",
+		// "accept-encoding": "gzip, deflate, br",
+		"user-agent": "mozilla/5.0",
+	},
+	"rest-client.timeoutinmilliseconds": 0,
+	"C_Cpp.errorSquiggles": "Enabled",
+}
