@@ -183,6 +183,7 @@ ngx_spawn_process(ngx_cycle_t *cycle, ngx_spawn_proc_pt proc, void *data,
     ngx_process_slot = s;
 
 
+	printf("fork! (process)\n");
     pid = fork();
 
     switch (pid) {
