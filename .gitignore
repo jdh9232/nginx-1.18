@@ -1,0 +1,21 @@
+# vscode
+src/.vscode/cpptools
+
+# object file
+objs/
+*.o
+
+# build file
+configure
+html/
+man/
+Makefile
+
+# vim
+.swp
+.swo
+.swn
+.swm
+.swl
+
+
