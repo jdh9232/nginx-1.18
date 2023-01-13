@@ -49,8 +49,15 @@
 #define NGX_HTTP_V2_PADDED_FLAG          0x08
 #define NGX_HTTP_V2_PRIORITY_FLAG        0x20
 
-#define NGX_HTTP_V2_MAX_WINDOW           ((1U << 31) - 1)
+// http2 debug
+#ifdef H2DEBUG
 #define NGX_HTTP_V2_DEFAULT_WINDOW       65535
+// #define NGX_HTTP_V2_MAX_WINDOW           2147483647
+#define NGX_HTTP_V2_MAX_WINDOW           ((1U << 22) - 1)
+#else
+#define NGX_HTTP_V2_DEFAULT_WINDOW       65535
+#define NGX_HTTP_V2_MAX_WINDOW           ((1U << 31) - 1)
+#endif
 
 #define NGX_HTTP_V2_DEFAULT_WEIGHT       16
 

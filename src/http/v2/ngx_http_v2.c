@@ -230,6 +230,7 @@ static ngx_http_v2_parse_header_t  ngx_http_v2_parse_headers[] = {
 void
 ngx_http_v2_init(ngx_event_t *rev)
 {
+	printf("ngx http v2 init\n");
     ngx_connection_t          *c;
     ngx_pool_cleanup_t        *cln;
     ngx_http_connection_t     *hc;
@@ -303,6 +304,7 @@ ngx_http_v2_init(ngx_event_t *rev)
         return;
     }
 
+	// http2 debug
     if (ngx_http_v2_send_window_update(h2c, 0, NGX_HTTP_V2_MAX_WINDOW
                                                - NGX_HTTP_V2_DEFAULT_WINDOW)
         == NGX_ERROR)
@@ -856,7 +858,9 @@ ngx_http_v2_state_data(ngx_http_v2_connection_t *h2c, u_char *pos, u_char *end)
 
     h2c->recv_window -= size;
 
-    if (h2c->recv_window < NGX_HTTP_V2_MAX_WINDOW / 4) {
+	// http2 debug
+	printf("h2c->recv_window : %ld\n", h2c->recv_window);
+    // if (h2c->recv_window < NGX_HTTP_V2_MAX_WINDOW / 4) {
 
         if (ngx_http_v2_send_window_update(h2c, 0, NGX_HTTP_V2_MAX_WINDOW
                                                    - h2c->recv_window)
@@ -867,7 +871,7 @@ ngx_http_v2_state_data(ngx_http_v2_connection_t *h2c, u_char *pos, u_char *end)
         }
 
         h2c->recv_window = NGX_HTTP_V2_MAX_WINDOW;
-    }
+    // }
 
     node = ngx_http_v2_get_node_by_id(h2c, h2c->state.sid, 0);
 
@@ -3818,6 +3822,10 @@ ngx_http_v2_read_request_body(ngx_http_request_t *r)
     stream = r->stream;
     rb = r->request_body;
 
+	if (r->uri.data != NULL) {
+		printf("r->uri : %s\n", r->uri.data);
+	}
+
     if (stream->skip_data) {
         r->request_body_no_buffering = 0;
         rb->post_handler(r);
@@ -4157,6 +4165,12 @@ ngx_http_v2_read_unbuffered_request_body(ngx_http_request_t *r)
     ngx_http_v2_stream_t      *stream;
     ngx_http_v2_connection_t  *h2c;
     ngx_http_core_loc_conf_t  *clcf;
+
+	if (r->uri.data != NULL) {
+		printf("r->uri : %s\n", r->uri.data);
+	}
+
+
 
     stream = r->stream;
     fc = r->connection;
