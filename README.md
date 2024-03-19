@@ -23,3 +23,11 @@ cp -r ./auto/configure ./
 - `src/event/ngx_event_acceptex.c`
 - `src/event/ngx_event_connectex.c`
 - `src/os/win32`
+
+
+#### nginx http2 분석 시 참조한 RFC 링크
+
++ RFC 9113 - <https://datatracker.ietf.org/doc/html/rfc9113>
++ RFC 7540 - <https://datatracker.ietf.org/doc/html/rfc7540>
++ RFC 7541 - <https://datatracker.ietf.org/doc/html/rfc7541>
+
