@@ -11,6 +11,8 @@
 
 
 #define NGX_HTTP_V2_TABLE_SIZE  4096
+// #define NGX_HTTP_V2_TABLE_SIZE  8192
+// #define NGX_HTTP_V2_TABLE_SIZE  65536
 
 
 static ngx_int_t ngx_http_v2_table_account(ngx_http_v2_connection_t *h2c,

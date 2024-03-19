@@ -19,6 +19,7 @@
 #define NGX_HTTP_V2_STATE_BUFFER_SIZE    16
 
 #define NGX_HTTP_V2_DEFAULT_FRAME_SIZE   (1 << 14)
+// #define NGX_HTTP_V2_DEFAULT_FRAME_SIZE   (1 << 16)
 #define NGX_HTTP_V2_MAX_FRAME_SIZE       ((1 << 24) - 1)
 
 #define NGX_HTTP_V2_INT_OCTETS           4
