@@ -5,7 +5,14 @@ cd $curpath
 
 ./kill_nginx.sh
 
-echo "$PROCESS start"
+echo "nginx start"
 # /usr/sbin/nginx
+
+./objs/nginx -t
+
+if [ $? -ne 0 ]; then
+    echo "nginx config error"
+    exit 1
+fi
 
 ./objs/nginx
