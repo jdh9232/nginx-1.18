@@ -31,3 +31,11 @@ cp -r ./auto/configure ./
 + RFC 7540 - <https://datatracker.ietf.org/doc/html/rfc7540>
 + RFC 7541 - <https://datatracker.ietf.org/doc/html/rfc7541>
 
+
+#### 분석에 참조한 문서
+
+- nginx conf 설정
+    + <https://nginx.org/en/docs/http/ngx_http_v2_module.html>
+    + <https://nginx.org/en/docs/http/ngx_http_core_module.html>
+
+- <https://my.f5.com/manage/s/article/K04412053>
