@@ -25,6 +25,17 @@ cp -r ./auto/configure ./
 - `src/os/win32`
 
 
+### 설치했던 apt 리스트 (Ubuntu 기준)
+
+```bash
+apt-get install libpcre3-dev
+apt-get install libssl-dev
+apt-get install libxml2-dev
+apt-get install libxslt-dev
+apt-get install libgd-dev
+```
+
+
 #### nginx http2 분석 시 참조한 RFC 링크
 
 + RFC 9113 - <https://datatracker.ietf.org/doc/html/rfc9113>
