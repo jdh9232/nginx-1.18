@@ -28,12 +28,17 @@ cp -r ./auto/configure ./
 ### 설치했던 apt 리스트 (Ubuntu 기준)
 
 ```bash
+apt-get install libpcre2-dev
 apt-get install libpcre3-dev
 apt-get install libssl-dev
 apt-get install libxml2-dev
 apt-get install libxslt-dev
 apt-get install libgd-dev
 ```
+
+#### 특이사항
+openssl 버전은 3 버전이면 컴파일 안됨. (1.18 컴파일 기준, 1.24 버전 등, 최신버전은 openssl3.0으로 컴파일 해야 함.) \
+직접 OpenSSL 소스 받아서 컴파일 해야 한다.
 
 
 #### nginx http2 분석 시 참조한 RFC 링크

@@ -15,11 +15,29 @@ if [ ! -d ./html/ ]; then
 	cp -r ./docs/html/ ./
 fi
 
+
+CUSTOM_OPENSSL_LIB="$HOME/src/opensource/openssl-1.1.1t"
+CUSTOM_OPENSSL_INCLUDE="$HOME/src/opensource/openssl-1.1.1t/include"
+
+cc_opt="-g -O0 -fdebug-prefix-map=/build/nginx-lUTckl/nginx-1.18.0=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wdate-time -D_FORTIFY_SOURCE=2"
+ld_opt="-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC "
+
+if [ -n "$CUSTOM_OPENSSL_INCLUDE" ]; then
+	cc_opt="$cc_opt -I $CUSTOM_OPENSSL_INCLUDE"
+fi
+
+if [ -n "$CUSTOM_OPENSSL_LIB" ]; then
+	ld_opt="$ld_opt -L $CUSTOM_OPENSSL_LIB"
+fi
+
+echo $cc_opt
+echo $ld_opt
+
 # --with-pcre=/usr/lib/x86_64-linux-gnu/libpcre.so \
 # --prefix=/etc/nginx \
 ./configure \
-    --with-cc-opt='-g -O0 -fdebug-prefix-map=/build/nginx-lUTckl/nginx-1.18.0=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wdate-time -D_FORTIFY_SOURCE=2' \
-    --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC' \
+    --with-cc-opt="$cc_opt" \
+    --with-ld-opt="$ld_opt" \
     --sbin-path=/usr/sbin/nginx \
     --prefix=/usr/share/nginx \
     --conf-path=/etc/nginx/nginx.conf \
